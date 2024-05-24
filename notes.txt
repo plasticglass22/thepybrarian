@@ -1,0 +1,24 @@
+pybrarian notes
+
+first things to do:
+
+>> define "book" object
+
+>> CLI menu
+
+>> make JSON entries for all books in library
+
+next things to do:
+
+>> query JSON document from CLI
+	>> define different searches:
+		>> by subject
+		>> by title or partial title
+		>> by author, year, etc.
+	>> list all by default / empty search
+		>> sort by...
+
+
+===================================================================================================================
+||=========================================|| NOTES AND SCRATCHWORK: ||==========================================||
+===================================================================================================================
