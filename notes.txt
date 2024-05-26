@@ -59,6 +59,9 @@ system interactions
 clean code:
 	try to move as much functionality out of main() as possible/useful. easier to maintain and read.
 
+best practices:
+	return types, graceful error handling, strict typing
+
 ===================================================================================================================
 ||=========================================|| NOTES AND SCRATCHWORK: ||==========================================||
 ===================================================================================================================

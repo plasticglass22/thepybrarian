@@ -21,11 +21,16 @@ topicsMenu = Menu("Topics", ["ABC", "DEF", "GHI", "JKL"])
 
 ## Book Object
 
+def menu_nav() -> None:
+    """handles the menu functionality"""
+    raise NotImplementedError("menu navigation controller -> needs impl. // " + 
+                              "prompt, read, execute upon input")
+
 def show_menu(m):
-    # print("list menu options here")
+    """displays contents of a menu"""
     print(m.name + ": ")
     for i in range(0, len(m.choices)):
-        print(str(i+1) + ". " + m.choices[i])
+        print(str(i+1), m.choices[i], sep='. ')
 
 def main():
     print("Welcome to Pybrarian, a Python3 implementation of Librarian.")
@@ -50,6 +55,8 @@ def main():
         print("")
         print("Select a topic: ")
         topic = input(">> ")
+
+    menu_nav()
 
 if __name__ == '__main__':
     main()
