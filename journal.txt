@@ -1,0 +1,19 @@
+pybrarian
+
+this is, in essence, just a little tool to index/organize/etc. my digital textbook collection. in the beginning, 
+the idea was to make a fairly OOP leaning project, but turns out i'm dogsh*t at programming.
+
+so, i'm starting over. i saw this series of youtube videos called "endless to-do app", where a guy builds a to-do 
+app piece by piece, feature by feature, basically forever. real "ship of theseus" kind of thing, but with code.
+
+so that's what i'm gonna do. start small, build brick by brick until i have an actual shippable piece of software. 
+might even become a better programmer in the process.
+
+
+
+PART 0: 
+    nuke all the old stuff. ignore the old attempts, back to square one.
+
+PART 1: 
+    list all the files in a directory
+        recursively list subdirectories

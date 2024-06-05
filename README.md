@@ -2,6 +2,9 @@
 
 ## purpose
 
-This is going to do the same exact thing as the rust version "The Librarian", but in python.
+this is an evolving project. the goal is to have a command line utility to organize and modify a collection of files.
 
-Easier syntax allows me to work out the design of the app while learning rust on the side.
+## credits
+
+developer: plasticglass
+project start: 5 June 2024
