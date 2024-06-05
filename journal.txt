@@ -11,9 +11,9 @@ might even become a better programmer in the process.
 
 
 
-PART 0: 
+PART 0: 5 June 2024
     nuke all the old stuff. ignore the old attempts, back to square one.
 
-PART 1: 
+PART 1: 6 June 2024
     list all the files in a directory
         recursively list subdirectories
