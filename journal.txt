@@ -49,3 +49,18 @@ PART 1: 6 June 2024
                 file: test2_1.txt
                 file: test2_2.sh
 
+    i made some basic listing functions, contents() and fullContents(), in the utils.py module. tbh, the real trick here 
+    is excluding the things i don't want to include, like pycache, from the output. seems simple enough, but i'm hungry, 
+    so it might be a job for tomorrow morning.
+
+    one thing i'm noticing is i'm having trouble really being certain of what to do w/r/t the functionality of the program.
+
+PART 2:
+    task:
+        get the contents() and fullContents() functions running smooth as possible, and make the output pretty. this will 
+        involve stripping noise from each result, and exluding results i don't want.
+
+    
+    task:
+        be able to distinguish subdirs from individual files programatically, so i can format the output even better.
+
