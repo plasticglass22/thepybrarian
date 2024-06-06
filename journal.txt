@@ -28,3 +28,24 @@ PART 1: 6 June 2024
     task 2:
         list subdir names as if they were files, then list their contents.
 
+    something tells me this is gonna take some regular expressions, we'll see.
+
+    hold up, glob isn't grabbing the files in testdir1, which is my first-level nested dir.
+    ok, figured that out pretty fast. in the glob pattern i was initially using, i was matching "./**/*.*", which 
+    actually restricts glob to matching files with extensions. i changed that to "./**/*" and it's working fine.
+
+    on to the actual task at hand, right now the output looks like this:
+        item:  ./testdir1/testdir2
+        item:  ./testdir1/test1_2
+        item:  ./testdir1/test1_1
+        item:  ./testdir1/testdir2/test2_1.txt
+        item:  ./testdir1/testdir2/test2_2.sh
+
+    somehow i want to get it to look like this:
+        directory: $CWD/testdir1
+            file: test1_2
+            file: test1_1
+            directory: $CWD/testdir1/testdir2
+                file: test2_1.txt
+                file: test2_2.sh
+
