@@ -15,5 +15,16 @@ PART 0: 5 June 2024
     nuke all the old stuff. ignore the old attempts, back to square one.
 
 PART 1: 6 June 2024
-    list all the files in a directory
-        recursively list subdirectories
+    task 1:
+        list all the files in a directory -> recursively list subdirectories
+
+    getting the cwd is easy enough with the os module. next thing to do is to collect and print the names of objects 
+    in the dir. glob.glob() sorta works for this. as is, it is so far just getting files, not subdirs. lemme rtfm for 
+    a minute.
+
+    ok, i got glob.glob() to recursively list all the files in CWD. next problem: listing subdirectories on their own 
+    line.
+
+    task 2:
+        list subdir names as if they were files, then list their contents.
+
