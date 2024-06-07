@@ -5,28 +5,17 @@ import re
 import numpy
 import utils
 
-## get name of CWD
+# utils.spacer(2)
 
-cwd_name = os.getcwd()
-print("current location: ", cwd_name)
+# print("glob contents()")
+# utils.Gcontents(".")
 
-utils.spacer(1)
+# utils.spacer(2)
 
-## get names of objects (files and/or subdirs) in CWD
-## simple get and print for a first step
-## DELETE THIS BLOCK: MADE REDUNDANT BY UTILS.FULLCONTENTS()
-# cwd_contents_rec = glob.glob('./**/*', recursive=True)
-# for item in cwd_contents_rec:
-#     print("item: ", str(item))
+# print("os.walk fullContents()")
+# utils.osfullContents(".")
 
-## mess around with the new fullContents() func
+test_contents = list(os.walk(".", topdown=True))
 
-# utils.fullContents(cwd_name)
-## this givess too much info, because os.getcwd() gets FULL path
-
-utils.fullContents(".")
-## this is the way to go i think, doesn't expose dir names above cwd
-
-utils.spacer(2)
-
-utils.contents(".")
+def files(filepath, filetype):
+    paths = []

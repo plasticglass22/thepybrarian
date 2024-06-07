@@ -64,3 +64,29 @@ PART 2:
     task:
         be able to distinguish subdirs from individual files programatically, so i can format the output even better.
 
+
+    testing the current setup on my actual books directory, it looks like it works in a breadth first search. i want it to be 
+    DFS.
+
+    THIS IS WHAT I WANT THE OUTPUT TO LOOK LIKE:
+
+        my_directory/
+        |
+        ├── sub_dir/
+        |   ├── bar.py
+        |   └── foo.py
+        |
+        ├── sub_dir_b/
+        |   └── file4.txt
+        |
+        ├── sub_dir_c/
+        |   ├── config.py
+        |   └── file5.txt
+        |
+        ├── file1.py
+        ├── file2.csv
+        └── file3.txt
+
+    for that i may actually use os.walk instead of glob.glob(). i'll play around with it and see which is better.
+
+    issue i'm having is with os.walk(): how do i just get a simple list of filenames?

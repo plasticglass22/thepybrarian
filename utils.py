@@ -33,9 +33,11 @@ def exclude() -> None:
 
     raise NotImplementedError("exclude() is not implemented")
 
-def fullContents(dir: str) -> None:
+def GfullContents(dir: str) -> None:
     """
     Recursively lists the contents of the specified directory, and it's subdirectories.
+
+    This method uses glob.glob()
 
     :param: dir: str -> directory to begin recursive operation
     """
@@ -45,9 +47,11 @@ def fullContents(dir: str) -> None:
     for item in rec_contents:
         print("item: ", str(item))
 
-def contents(dir: str) -> None:
+def Gcontents(dir: str) -> None:
     """
     Lists the contents of just the directory specified as an argument.
+
+    This method uses glob.glob()
 
     :param: dir: str -> the directory to print
     """
@@ -56,3 +60,20 @@ def contents(dir: str) -> None:
     dir_contents = glob.glob(glob_pattern)
     for item in dir_contents:
         print("item: ", str(item))
+
+def osfullContents(dir: str) -> None:
+    """
+    Recursively lists the contents of the specified directory and its subdirectories.
+
+    This method uses os.walk()
+
+    :param: dir: str -> the directory to begin recusrsive operations.
+    """
+
+    for root, dirs, files in os.walk(dir, topdown=True):
+        # for name in files:
+            # print(os.path.join(root, name)) ## PRINTS FULL PATH OF FILE
+            # print(root) ## PRINTS DIR PATH UP TO NOT INCLUDING FILENAME
+            # print(name) ## PRINTS JUST FILENAME, NO DIR NAMES
+        for name in dirs:
+            print(os.path.join(root, name))
