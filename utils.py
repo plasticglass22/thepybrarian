@@ -3,6 +3,7 @@ import sys
 import os
 import glob
 import numpy
+from collections import defaultdict
 
 ## if these exist in a result string, don't print it.
 EXCLUDE_PATTERNS = ["__pycache__", "git", ".vscode"]
@@ -74,6 +75,10 @@ def osfullContents(dir: str) -> None:
     ## JUST NEEDS TO BE FORMATTED
 
     directories = []
+    formatteddirs = []
+    filenames = []
+
+    CONTENTS = defaultdict(list[str])
 
     cwd = "/" + os.getcwd()[os.getcwd().rfind("/"):]
 
@@ -81,21 +86,26 @@ def osfullContents(dir: str) -> None:
 
     for root, subdirs, files in os.walk(dir, topdown=True):
         for file in files:
-            # print(root + os.sep + file)
+            #######################################
+            # DIRNAMES
             for item in EXCLUDE_PATTERNS:
                 if item not in root:
                     directories.append(root)
                     pass
                 else:
                     root = ""
-            # if root != "": print(root)
             for dir in directories:
                 for item in EXCLUDE_PATTERNS:
                     if item not in dir:
                         pass
                     else:
                         dir = ""
-            if dir != "": print(cwd[1:] + dir[1:])
+            fdir = cwd[1:] + dir[1:]
+            if dir != "": print(fdir)
+            if dir != "": formatteddirs.append(fdir)
+            ########################################
+            # FILENAMES
+            ########################################
             path = str("/" + file)
             for item in EXCLUDE_PATTERNS:
                 if item not in path:
@@ -103,7 +113,12 @@ def osfullContents(dir: str) -> None:
                 else:
                     path = ""
             if path != "" and root != "": 
-                # print(root)
                 print("\u2517\u2501\u2501" + path[1:])
+                filenames.append(path)
+            #########################################
+            if dir != "": CONTENTS[fdir].append(path[1:])
+
+    print(sorted(CONTENTS.items()))
 
     spacer(1)
+

@@ -4,6 +4,7 @@ import glob
 import re
 import numpy
 import utils
+from collections import defaultdict
 
 # utils.spacer(2)
 
