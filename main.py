@@ -13,7 +13,7 @@ import utils
 # utils.spacer(2)
 
 # print("os.walk fullContents()")
-# utils.osfullContents(".")
+utils.osfullContents(".")
 
 test_contents = list(os.walk(".", topdown=True))
 

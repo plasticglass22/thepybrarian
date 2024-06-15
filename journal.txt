@@ -90,3 +90,42 @@ PART 2:
     for that i may actually use os.walk instead of glob.glob(). i'll play around with it and see which is better.
 
     issue i'm having is with os.walk(): how do i just get a simple list of filenames?
+
+    ON THE RIGHT TRACK:
+        for root, dirs, files in os.walk(dir, topdown=True):
+            for name in files:
+                # print(os.path.join(root, name)) ## PRINTS FULL PATH OF FILE
+                # print(root) ## PRINTS DIR PATH UP TO NOT INCLUDING FILENAME
+                # print(name) ## PRINTS JUST FILENAME, NO DIR NAMES
+                print(root, name)
+            for name in dirs:
+                print(os.path.join(root, name)) 
+
+        >> just need to exclude git stuff
+
+    EVEN RIGHTER TRACK:
+        for root, subdirs, files in os.walk(dir, topdown=True):
+        for file in files:
+            # print(root + os.sep + file)
+            path = root, file
+            for item in EXCLUDE_PATTERNS:
+                if item not in path:
+                    print(path)
+                else:
+                    pass
+
+
+    THIS IS THE WINNER:
+        for root, subdirs, files in os.walk(dir, topdown=True):
+        for file in files:
+            # print(root + os.sep + file)
+            path = str(root + "/" + file)
+            for item in EXCLUDE_PATTERNS:
+                if item not in path:
+                    pass
+                else:
+                    path = ""
+            if path != "": print(path)
+
+        >> just need to format it now
+            >> remove parts of path above supplied dir

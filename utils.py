@@ -5,7 +5,7 @@ import glob
 import numpy
 
 ## if these exist in a result string, don't print it.
-EXCLUDE_PATTERNS = ["__pycache__"]
+EXCLUDE_PATTERNS = ["__pycache__", "git", ".vscode"]
 
 ## strip these off of a result string for formatting and presentation
 STRIP_PATTERNS = {
@@ -67,13 +67,43 @@ def osfullContents(dir: str) -> None:
 
     This method uses os.walk()
 
-    :param: dir: str -> the directory to begin recusrsive operations.
+    :param: dir: str -> the directory to begin recursive operations.
     """
 
-    for root, dirs, files in os.walk(dir, topdown=True):
-        # for name in files:
-            # print(os.path.join(root, name)) ## PRINTS FULL PATH OF FILE
-            # print(root) ## PRINTS DIR PATH UP TO NOT INCLUDING FILENAME
-            # print(name) ## PRINTS JUST FILENAME, NO DIR NAMES
-        for name in dirs:
-            print(os.path.join(root, name))
+    ## THIS GETS THE RIGHT OUTPUT
+    ## JUST NEEDS TO BE FORMATTED
+
+    directories = []
+
+    cwd = "/" + os.getcwd()[os.getcwd().rfind("/"):]
+
+    spacer(1)
+
+    for root, subdirs, files in os.walk(dir, topdown=True):
+        for file in files:
+            # print(root + os.sep + file)
+            for item in EXCLUDE_PATTERNS:
+                if item not in root:
+                    directories.append(root)
+                    pass
+                else:
+                    root = ""
+            # if root != "": print(root)
+            for dir in directories:
+                for item in EXCLUDE_PATTERNS:
+                    if item not in dir:
+                        pass
+                    else:
+                        dir = ""
+            if dir != "": print(cwd[1:] + dir[1:])
+            path = str("/" + file)
+            for item in EXCLUDE_PATTERNS:
+                if item not in path:
+                    pass
+                else:
+                    path = ""
+            if path != "" and root != "": 
+                # print(root)
+                print("\u2517\u2501\u2501" + path[1:])
+
+    spacer(1)
