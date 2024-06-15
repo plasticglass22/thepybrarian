@@ -82,8 +82,6 @@ def osfullContents(dir: str) -> None:
 
     cwd = "/" + os.getcwd()[os.getcwd().rfind("/"):]
 
-    spacer(1)
-
     for root, subdirs, files in os.walk(dir, topdown=True):
         for file in files:
             #######################################
@@ -101,7 +99,7 @@ def osfullContents(dir: str) -> None:
                     else:
                         dir = ""
             fdir = cwd[1:] + dir[1:]
-            if dir != "": print(fdir)
+            # if dir != "": print(fdir)
             if dir != "": formatteddirs.append(fdir)
             ########################################
             # FILENAMES
@@ -113,12 +111,31 @@ def osfullContents(dir: str) -> None:
                 else:
                     path = ""
             if path != "" and root != "": 
-                print("\u2517\u2501\u2501" + path[1:])
+                # print("\u2517\u2501\u2501" + path[1:])
                 filenames.append(path)
             #########################################
             if dir != "": CONTENTS[fdir].append(path[1:])
 
-    print(sorted(CONTENTS.items()))
+    # spacer(1)
+    
+    # print(sorted(CONTENTS.items()))
+
+    dirname0 = list(sorted(CONTENTS.items()))[0]
+    fnames0 = list(sorted(CONTENTS.items()))[0][1]
+    # print(list(sorted(CONTENTS.items()))[0][1])
+    # print(dirname0[0])
+    # print(fnames0[0])
 
     spacer(1)
 
+    ITER_ITEMS = list(sorted(CONTENTS.items()))
+
+    # for a in range(0, len(ITER_ITEMS)):
+    #     print(ITER_ITEMS[a])
+
+    for i in range(0, len(ITER_ITEMS)):
+        print(ITER_ITEMS[i][0])
+        for j in range(0, len(ITER_ITEMS[i][1])):
+            print("\u2517\u2501\u2501 " + ITER_ITEMS[i][1][j])
+
+    spacer(1)

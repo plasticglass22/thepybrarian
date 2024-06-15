@@ -129,3 +129,8 @@ PART 2:
 
         >> just need to format it now
             >> remove parts of path above supplied dir
+
+        HOLY CRAP
+        IT WORKS
+        I AM NOT EVEN ENTIRELY SURE HOW I GOT TO THIS POINT
+        BUT IT WORKS
