@@ -35,13 +35,16 @@ At time of publishing v1.0, the program must be run as a python3 script. Downloa
 
 ## Usage
 
-Return all items in a directory an subdirectories:
+Return all items in a directory and subdirectories:
+    
     python3 main.py
 
-Search by substring in a filename:
+Search by substring in a file name:
+    
     python3 main.py *searchterm*
 
 Search by substring in a directory name:
+    
     python3 main.py -d *searchterm*
 
 ## Credits
