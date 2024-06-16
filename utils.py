@@ -7,7 +7,7 @@ import aesth
 ## if these exist in a result string, don't print it.
 EXCLUDE_PATTERNS = ["__pycache__", "git", ".vscode"]
 
-def fullContents(dir: str, searchterm: str) -> None:
+def fullContents(dir: str, searchterm: str, diropt: bool) -> None:
     """
     Recursively lists the contents of the specified directory and its subdirectories.
 
@@ -15,6 +15,7 @@ def fullContents(dir: str, searchterm: str) -> None:
 
     :param: dir: str -> the directory to begin recursive operations.
     :param: searchterm: str -> search term supplied as CLI argument.
+    :param: diropt: bool -> if True, searches by directory name.
     """
 
     ## lists for result processing
@@ -62,11 +63,16 @@ def fullContents(dir: str, searchterm: str) -> None:
     ## because they have the same parent dir.
     ITER_ITEMS = list(sorted(CONTENTS.items()))
 
-    printResults(ITER_ITEMS, searchterm, False)
+    if diropt == False:
+        printResults(ITER_ITEMS, searchterm, False)
+    elif diropt == True:
+        printResults(ITER_ITEMS, searchterm, True)
 
 def directorySearch(dir: str, searchterm: str) -> None:
-    # raise NotImplementedError("Function In Development")
-        ## lists for result processing
+    """
+    Same as fullContents(). TO DO: consolidate.
+    """
+    ## lists for result processing
     directories = []
     formatteddirs = []
     filenames = []
@@ -111,6 +117,7 @@ def directorySearch(dir: str, searchterm: str) -> None:
     ## because they have the same parent dir.
     ITER_ITEMS = list(sorted(CONTENTS.items()))
 
+    ## This is the only part different from fullContents()
     printResults(ITER_ITEMS, searchterm, True)
 
 def printResults(contents: list[tuple[str, list[str]]], searchterm: str, diropt: bool) -> None:

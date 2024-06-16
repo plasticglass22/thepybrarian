@@ -8,11 +8,12 @@ class colorstyle:
     Class of color/formatting values for STDOUT output.
     """
     RED = '\033[91m'
-    DIRHEADER = '\033[1m\033[94m\033[4m'
-    NORMAL = '\033[0m'
-    GREEN = '\033[92m'
+    GREEN = '\033[0m\033[92m'
     LIGHTCYAN = '\033[96m'
     LIGHTYELLOW = '\033[93m'
+    DIRHEADER = '\033[1m\033[94m\033[4m'
+    NORMAL = '\033[0m'
+    ERROR = '\033[91m\033[1m\033[4m'
 
 def spacer(lines: int) -> None:
     """
