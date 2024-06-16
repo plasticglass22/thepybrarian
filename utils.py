@@ -134,14 +134,23 @@ def printResults(contents: list[tuple[str, list[str]]], searchterm: str, diropt:
         if searchterm != "":
             for i in range(0, len(contents)):
                 levels = contents[i][0].count("/")
+                fnames = []
+                dnames = []             
                 for j in range(0, len(contents[i][1])):
                     if searchterm.lower() in contents[i][1][j].lower():
-                        print("")
-                        print(aesth.colorstyle.DIRHEADER + contents[i][0] + aesth.colorstyle.NORMAL)
-                        print("")
-                        print(aesth.colorstyle.GREEN + " \u2517" + levels*"\u2501\u2501 " + contents[i][1][j])
+                        dnames.append(contents[i][0])
+                        fnames.append(contents[i][1][j])
                     else:
                         pass
+                dnames = list(set(dnames))
+                for dname in dnames:
+                    print("")
+                    print(aesth.colorstyle.DIRHEADER + dname + aesth.colorstyle.NORMAL)
+                    print("")
+                    for fname in fnames:
+                        print(aesth.colorstyle.GREEN + " \u2517" + levels*"\u2501\u2501 " + fname)
+            fnames.clear()
+            dnames.clear()
         else:
             for i in range(0, len(contents)):
                 levels = contents[i][0].count("/")
@@ -154,11 +163,12 @@ def printResults(contents: list[tuple[str, list[str]]], searchterm: str, diropt:
         if searchterm != "":
             for i in range(0, len(contents)):
                 levels = contents[i][0].count("/")
+                if searchterm.lower() in contents[i][0].lower():
+                    print("")
+                    print(aesth.colorstyle.DIRHEADER + contents[i][0] + aesth.colorstyle.NORMAL)
+                    print("")
                 for j in range(0, len(contents[i][1])):
                     if searchterm.lower() in contents[i][0].lower():
-                        print("")
-                        print(aesth.colorstyle.DIRHEADER + contents[i][0] + aesth.colorstyle.NORMAL)
-                        print("")
                         print(aesth.colorstyle.GREEN + " \u2517" + levels*"\u2501\u2501 " + contents[i][1][j])
                     else:
                         pass
