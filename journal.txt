@@ -138,3 +138,20 @@ PART 2:
 *************************************************************************
 ********************** WRITE DOCUMENTATION ******************************
 *************************************************************************
+
+ok, what now?
+
+ok, here's the next part of this project: i've gotten the program to spit out all the legit 
+contents of a directory and its subdirs. i even got it to look somewhat presentable. so now the 
+idea is to modify the program to take a command line argument where the user can specify the 
+results they want. i.e., "python" only returns results with "python" in the filename or dir path.
+
+typing this out, i just know i'm gonna have trouble.
+
+actually, this was significantly easier than i thought. can only do one search term at the moment, though.
+so i got that working. i guess the next step would be either:
+    a) add the ability to take more search terms >> this would probably get more complicated the more 
+    search terms i allow.
+    b) aesthetic improvements >> different color text based on file type, etc. in any case, i have to reformat 
+    filenames, because they're ugly. i mean on the actual files, not in how they're printed by the program.
+

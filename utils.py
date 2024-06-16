@@ -13,6 +13,12 @@ STRIP_PATTERNS = {
     "leading_dot" : "^."
 }
 
+class colorstyle:
+    RED = '\033[91m'
+    DIRHEADER = '\033[1m\033[94m\033[4m'
+    NORMAL = '\033[0m'
+    GREEN = '\033[92m'
+
 def spacer(lines: int) -> None:
     """
     Adds a specified number of blank lines to CLI output as a spacer for formatting.
@@ -25,7 +31,7 @@ def spacer(lines: int) -> None:
         print("")
         i += 1
 
-def osfullContents(dir: str) -> None:
+def osfullContents(dir: str, searchterm: str) -> None:
     """
     Recursively lists the contents of the specified directory and its subdirectories.
 
@@ -77,16 +83,24 @@ def osfullContents(dir: str) -> None:
             #########################################
             if dir != "": CONTENTS[fdir].append(path[1:])
 
-    dirname0 = list(sorted(CONTENTS.items()))[0]
-    fnames0 = list(sorted(CONTENTS.items()))[0][1]
-
-    spacer(1)
-
     ITER_ITEMS = list(sorted(CONTENTS.items()))
 
-    for i in range(0, len(ITER_ITEMS)):
-        print(ITER_ITEMS[i][0])
-        for j in range(0, len(ITER_ITEMS[i][1])):
-            print("\u2517\u2501\u2501 " + ITER_ITEMS[i][1][j])
+    if searchterm != "":
+        for i in range(0, len(ITER_ITEMS)):
+            for j in range(0, len(ITER_ITEMS[i][1])):
+                if searchterm in ITER_ITEMS[i][1][j]:
+                    print("")
+                    print(colorstyle.DIRHEADER + ITER_ITEMS[i][0] + colorstyle.NORMAL)
+                    print("")
+                    print(colorstyle.GREEN + " \u2517\u2501\u2501 " + ITER_ITEMS[i][1][j])
+                else:
+                    pass
+    else:
+        for i in range(0, len(ITER_ITEMS)):
+            print("")
+            print(colorstyle.DIRHEADER + ITER_ITEMS[i][0] + colorstyle.NORMAL) ## PRINTING DIRECTORY NAME
+            print("")
+            for j in range(0, len(ITER_ITEMS[i][1])):
+                print(colorstyle.GREEN + " \u2517\u2501\u2501 " + ITER_ITEMS[i][1][j]) ## PRINTING FILENAME
 
     spacer(1)

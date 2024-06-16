@@ -6,17 +6,15 @@ import numpy
 import utils
 from collections import defaultdict
 
-# utils.spacer(2)
+utils.spacer(1)
 
-# print("glob contents()")
-# utils.Gcontents(".")
+SEARCH_TERMS = sys.argv
 
-# utils.spacer(2)
-
-# print("os.walk fullContents()")
-utils.osfullContents(".")
-
-test_contents = list(os.walk(".", topdown=True))
-
-def files(filepath, filetype):
-    paths = []
+if len(SEARCH_TERMS) > 2:
+    print("Too many search terms. One at a time, please.")
+elif len(SEARCH_TERMS) > 1:
+    print("Returning items related to: ", SEARCH_TERMS[1])
+    utils.osfullContents(".", SEARCH_TERMS[1])
+else:
+    print("Returning everything in this directory: ")
+    utils.osfullContents(".", "")
