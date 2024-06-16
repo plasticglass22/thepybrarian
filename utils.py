@@ -8,16 +8,13 @@ from collections import defaultdict
 ## if these exist in a result string, don't print it.
 EXCLUDE_PATTERNS = ["__pycache__", "git", ".vscode"]
 
-## strip these off of a result string for formatting and presentation
-STRIP_PATTERNS = {
-    "leading_dot" : "^."
-}
-
 class colorstyle:
     RED = '\033[91m'
     DIRHEADER = '\033[1m\033[94m\033[4m'
     NORMAL = '\033[0m'
     GREEN = '\033[92m'
+    LIGHTCYAN = '\033[96m'
+    LIGHTYELLOW = '\033[93m'
 
 def spacer(lines: int) -> None:
     """
@@ -87,20 +84,22 @@ def osfullContents(dir: str, searchterm: str) -> None:
 
     if searchterm != "":
         for i in range(0, len(ITER_ITEMS)):
+            levels = ITER_ITEMS[i][0].count("/")
             for j in range(0, len(ITER_ITEMS[i][1])):
                 if searchterm in ITER_ITEMS[i][1][j]:
                     print("")
                     print(colorstyle.DIRHEADER + ITER_ITEMS[i][0] + colorstyle.NORMAL)
                     print("")
-                    print(colorstyle.GREEN + " \u2517\u2501\u2501 " + ITER_ITEMS[i][1][j])
+                    print(colorstyle.GREEN + " \u2517" + levels*"\u2501\u2501 " + ITER_ITEMS[i][1][j])
                 else:
                     pass
     else:
         for i in range(0, len(ITER_ITEMS)):
+            levels = ITER_ITEMS[i][0].count("/")
             print("")
             print(colorstyle.DIRHEADER + ITER_ITEMS[i][0] + colorstyle.NORMAL) ## PRINTING DIRECTORY NAME
             print("")
             for j in range(0, len(ITER_ITEMS[i][1])):
-                print(colorstyle.GREEN + " \u2517\u2501\u2501 " + ITER_ITEMS[i][1][j]) ## PRINTING FILENAME
+                print(colorstyle.GREEN + " \u2517" + levels*"\u2501\u2501 " + ITER_ITEMS[i][1][j]) ## PRINTING FILENAME
 
     spacer(1)

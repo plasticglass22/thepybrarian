@@ -155,3 +155,8 @@ so i got that working. i guess the next step would be either:
     b) aesthetic improvements >> different color text based on file type, etc. in any case, i have to reformat 
     filenames, because they're ugly. i mean on the actual files, not in how they're printed by the program.
 
+i want to add functionality to grab a directory by name, like "-d python" gets a directory called "python"
+or any directory with "python"in the name.
+
+i don't need to add a specific functionality to do that for files, because that's what the argument search 
+term already does.
