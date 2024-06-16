@@ -160,3 +160,12 @@ or any directory with "python"in the name.
 
 i don't need to add a specific functionality to do that for files, because that's what the argument search 
 term already does.
+
+directory search has been implemented. it seems to me that after getting over the big obstacle of actually returning 
+every file and directory name, the rest was easy by comparison. functionality like directory search is built on the 
+fullContents() code, so most of the work was already done. just had to change a few indices.
+
+the rest of today was basically formatting, aesthetic improvement, testing, and documentation.
+
+next step is to package and publish this as version 1.0 on github. project's not over, always more to add, but 
+i want to get something out there. if for no other reason then to say "i published a piece of software".
