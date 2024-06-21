@@ -3,6 +3,7 @@
 import sys
 import utils
 import aesth
+import npyscreen as nps
 
 aesth.spacer(1)
 
