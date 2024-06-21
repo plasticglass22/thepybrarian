@@ -65,64 +65,12 @@ def fullContents(dir: str, searchterm: str, diropt: bool) -> list[tuple[str, lis
     ## because they have the same parent dir.
     ITER_ITEMS = list(sorted(CONTENTS.items()))
 
-    return ITER_ITEMS
+    # return ITER_ITEMS
 
-    # if diropt == False:
-    #     printResults(ITER_ITEMS, searchterm, False)
-    # elif diropt == True:
-    #     printResults(ITER_ITEMS, searchterm, True)
-
-def directorySearch(dir: str, searchterm: str) -> None:
-    """
-    Same as fullContents(). TO DO: consolidate.
-    """
-    ## lists for result processing
-    directories = []
-    formatteddirs = []
-    filenames = []
-
-    ## container for results of walk
-    CONTENTS = defaultdict(list[str])
-
-    ## trim off part of path above starting directory
-    cwd = "/" + os.getcwd()[os.getcwd().rfind("/"):]
-
-    ## recursively walk through directories, add items to lists initialized above
-    for root, subdirs, files in os.walk(dir, topdown=True):
-        for file in files:
-            # DIRNAMES
-            for item in EXCLUDE_PATTERNS:
-                if item not in root:
-                    directories.append(root)
-                    pass
-                else:
-                    root = ""
-            for dir in directories:
-                for item in EXCLUDE_PATTERNS:
-                    if item not in dir:
-                        pass
-                    else:
-                        dir = ""
-            fdir = cwd[1:] + dir[1:]
-            if dir != "": formatteddirs.append(fdir)
-            # FILENAMES
-            path = str("/" + file)
-            for item in EXCLUDE_PATTERNS:
-                if item not in path:
-                    pass
-                else:
-                    path = ""
-            if path != "" and root != "": 
-                filenames.append(path)
-            if dir != "": CONTENTS[fdir].append(path[1:])
-
-    ## remove duplicates from results, put them in order
-    ## 'sorted' puts the dirs in alphabetical order. lets subdirs be grouped together 
-    ## because they have the same parent dir.
-    ITER_ITEMS = list(sorted(CONTENTS.items()))
-
-    ## This is the only part different from fullContents()
-    printResults(ITER_ITEMS, searchterm, True)
+    if diropt == False:
+        printResults(ITER_ITEMS, searchterm, False)
+    elif diropt == True:
+        printResults(ITER_ITEMS, searchterm, True)
 
 def printResults(contents: list[tuple[str, list[str]]], searchterm: str, diropt: bool) -> None:
     """
